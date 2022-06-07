@@ -10,6 +10,7 @@ const RandomBeer = () => {
     const response = axios(url)
       .then((response) => {
         const data = response.data;
+        console.log(data);
         setBeer(data);
       })
       .catch((error) => {
@@ -28,20 +29,21 @@ const RandomBeer = () => {
   }
   return (
     <div>
+      {beer && (
 
-      <div>
-        <img src={beer.image_url} alt={beer.name} />
         <div>
           <div>
-            <h3>{beer.name}</h3>
-            <p>{beer.tagline}</p>
-          </div>
-          <div>
-            <p>{beer.attenuation_level}</p>
-            <p>{beer.first_brewed}</p>
+            <div>
+              <h3>{beer.name}</h3>
+              <p>{beer.tagline}</p>
+            </div>
+            <div>
+              <p>{beer.attenuation_level}</p>
+              <p>{beer.first_brewed}</p>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   )
 }

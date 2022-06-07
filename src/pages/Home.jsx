@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import beers from '../assets/beers.png';
 import newBeer from '../assets/new-beer.png';
 import randomBeer from '../assets/random-beer.png';
+
 const Home = () => {
   return (
     <div className="home">

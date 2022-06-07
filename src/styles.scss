@@ -49,3 +49,9 @@ a {
     padding-inline-end: 1rem;
   }
 }
+form {
+  input,
+  textarea {
+    display: block;
+  }
+}

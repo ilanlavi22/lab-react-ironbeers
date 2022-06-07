@@ -1,6 +1,8 @@
-import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
+
+
 
 const SingleBeer = () => {
   const params = useParams();
@@ -10,8 +12,10 @@ const SingleBeer = () => {
 
   const url = `https://ih-beers-api2.herokuapp.com/beers/${beerId}`;
 
+
+
   const fetchBeer = () => {
-    const response = axios(url)
+    const response = axios(`https://ih-beers-api2.herokuapp.com/beers/${beerId}`)
       .then((response) => {
         const data = response.data;
         setBeer(data);
@@ -25,30 +29,17 @@ const SingleBeer = () => {
     fetchBeer();
   }, [beerId]);
 
-
-
-  if (!beer) {
-    console.log("nothing is the array");
-  } else {
-
-  }
-
   return (
     <div>
-
-      <div>
-        <img src={beer.image_url} alt={beer.name} />
+      <h1>{beerId}</h1>
+      {beer && (
         <div>
-          <div>
-            <h3>{beer.name}</h3>
-            <p>{beer.tagline}</p>
-          </div>
-          <div>
-            <p>{beer.attenuation_level}</p>
-            <p>{beer.first_brewed}</p>
-          </div>
+          {beer.image_url}
+          {beer.name}
+          {beer.tagline}
         </div>
-      </div>
+
+      )}
     </div>
   )
 }
